@@ -1,20 +1,27 @@
 //
-//  ViewController.swift
+//  ViewControllerNew4.swift
 //  FaceTracking
 //
-//  Created by Prathmesh Bhatt on 11/10/21.
+//  Created by Prathmesh Bhatt on 11/14/21.
 //
 
+import Foundation
+
+import Foundation
 import UIKit
 import SceneKit
 import ARKit
 import AVFoundation
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewControllerNew4: UIViewController, ARSCNViewDelegate {
     
     var savedResultForface = ""
-    @IBOutlet var sceneView: ARSCNView!
     
-    @IBOutlet weak var outputView: UIView!
+    @IBOutlet weak var sceneView: ARSCNView!
+    
+    
+  
+    @IBOutlet var outputView: UIView!
+    
     @IBOutlet weak var outputLabel: UILabel!
     var facePoseResult = ""
 
@@ -85,48 +92,35 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
            var newFacePoseResult = ""
        
-           if ((jawOpen?.decimalValue ?? 0.0) + (innerUp?.decimalValue ?? 0.0)) > 0.6 {
-               newFacePoseResult = "Sad"
-             savedResultForface = "Sad"
-            
-           }
-           
-           if ((smileLeft?.decimalValue ?? 0.0) + (smileRight?.decimalValue ?? 0.0)) > 0.9 {
-               newFacePoseResult = "Smiling"
-            
-             savedResultForface = "Smiling"
-            checkDrunkCounter += 1;
-            
-           }
-        
-           if innerUp?.decimalValue ?? 0.0 > 0.8 {
-               newFacePoseResult = "Shocked"
-             savedResultForface = "Shocked"
-           }
-           
-           if tongue?.decimalValue ?? 0.0 > 0.08 {
-               newFacePoseResult = "Goofy"
-             savedResultForface = "Goofy"
-            checkDrunkCounter += 1;
-           }
-           
-           if cheekPuff?.decimalValue ?? 0.0 > 0.5 {
-               newFacePoseResult = "Disgusted"
-             savedResultForface = "Disgusted"
-           }
-           
-           if eyeBlinkLeft?.decimalValue ?? 0.0 > 0.5 {
-               newFacePoseResult = "left blink"
-             savedResultForface = "left blink"
-           }
-        if sad?.decimalValue ?? 0.0 > 0.5 {
-            newFacePoseResult = "Sad music "
-            savedResultForface = "sad"
-        }
-           
-           if self.facePoseResult != newFacePoseResult {
-               self.facePoseResult = newFacePoseResult
-           }
+        if ((jawOpen?.decimalValue ?? 0.0) + (innerUp?.decimalValue ?? 0.0)) > 0.6 {
+                    newFacePoseResult = "😧"
+                }
+                
+                if ((smileLeft?.decimalValue ?? 0.0) + (smileRight?.decimalValue ?? 0.0)) > 0.9 {
+                    newFacePoseResult = "😀"
+                }
+             
+                if innerUp?.decimalValue ?? 0.0 > 0.8 {
+                    newFacePoseResult = "😳"
+                }
+                
+                if tongue?.decimalValue ?? 0.0 > 0.08 {
+                    newFacePoseResult = "😛"
+                }
+                
+                if cheekPuff?.decimalValue ?? 0.0 > 0.5 {
+                    newFacePoseResult = "🤢"
+                }
+                
+                if eyeBlinkLeft?.decimalValue ?? 0.0 > 0.5 {
+                    newFacePoseResult = "😉"
+                }
+                
+                if self.facePoseResult != newFacePoseResult {
+                    self.facePoseResult = newFacePoseResult
+                
+                
+            }
            
        }
        
@@ -144,7 +138,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
            // Reset tracking and/or remove existing anchors if consistent tracking is required
            
        }
-    
-   
+  
     
 }
